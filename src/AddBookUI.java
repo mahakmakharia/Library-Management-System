@@ -187,20 +187,26 @@ public class AddBookUI extends JFrame {
         JButton btnNewButton = new JButton("Add Book");
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                Book book = new Book(BookName.getText(), AuthorName.getText(), Publisher.getText(), ISBNCode.getText(), Integer.parseInt(Copies.getText()),
-                        Integer.parseInt(CopiesIssued.getText()), Integer.parseInt(BookID.getText()));
 
-                if (BookName.getText() != null && AuthorName.getText() != null && Publisher.getText() != null
-                        && ISBNCode.getText() != null && Copies.getText() != null && CopiesIssued.getText() != null && BookID.getText() != null) {
-                    if (mainMgr.addBook(book)) {
-                        JOptionPane.showMessageDialog(null, "Succesfully Added new Book!");
-                        dispose();
-                    }
-                    JOptionPane.showMessageDialog(null, "Couldn't add book!",
-                            "Login", JOptionPane.WARNING_MESSAGE);
-                } else {
+                if (BookName.getText().equals("") && AuthorName.getText().equals("") && Publisher.getText().equals("")
+                        && ISBNCode.getText().equals("") && Copies.getText().equals("") && CopiesIssued.getText().equals("")
+                        && BookID.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Please fill all the fields!",
-                            "Login", JOptionPane.WARNING_MESSAGE);
+                            "Add Book", JOptionPane.WARNING_MESSAGE);
+
+                } else if (Integer.parseInt(Copies.getText()) < Integer.parseInt(CopiesIssued.getText())) {
+                    JOptionPane.showMessageDialog(null, "No of copies can't be lesser than no of copies issued!",
+                            "Add Book", JOptionPane.WARNING_MESSAGE);
+                } else {
+                    Book book = new Book(BookName.getText(), AuthorName.getText(), Publisher.getText(), ISBNCode.getText(), Integer.parseInt(Copies.getText()),
+                            Integer.parseInt(CopiesIssued.getText()), Integer.parseInt(BookID.getText()));
+                    if (mainMgr.addBook(book)) {
+                        JOptionPane.showMessageDialog(null, "Succesfully added new Book!");
+                        dispose();
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Couldn't add book!",
+                                "Add Book", JOptionPane.WARNING_MESSAGE);
+                    }
                 }
 
             }

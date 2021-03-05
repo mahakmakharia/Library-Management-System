@@ -40,11 +40,9 @@ public class BookManager {
             bw.newLine();
             while ((s = br.readLine()) != null) {
 
-                System.out.print(s);
-
                 String[] data = s.split(",");
-//                if(data.length!=6)
-//                    continue;
+
+                //order: book name,author name,publisher,ISBN Code, no of copies, no of copies issued, book ID
                 Book book = new Book();
                 book.setBookName(data[0]);
                 book.setAuthor(data[1]);
@@ -95,7 +93,6 @@ public class BookManager {
 
         for (int i = 0; i < BookList.size(); i++) {
             Book b = BookList.get(i);
-            System.out.println(b.getBookId() + " " + bookId);
             if (bookId == b.getBookId()) {
                 return b;
             }
@@ -147,8 +144,6 @@ public class BookManager {
             String book = (BookList.get(i).getBookName()).toLowerCase();
 
             if (book.contains(bookName.toLowerCase()) || book.equalsIgnoreCase(bookName)) {
-                System.out.println(book + "," + bookName.toLowerCase()
-                );
                 bookList.add(BookList.get(i));
             }
         }

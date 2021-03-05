@@ -57,108 +57,86 @@ public class AdminDashboardUI extends JFrame {
         contentPane.setBackground(Color.WHITE);
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
-                        GridBagLayout gbl_contentPane = new GridBagLayout();
-                        gbl_contentPane.columnWidths = new int[]{207, 211, 0};
-                        gbl_contentPane.rowHeights = new int[]{49, 29, 39, 25, 25, 0};
-                        gbl_contentPane.columnWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
-                        gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-                        contentPane.setLayout(gbl_contentPane);
-                        
-                        //        JButton btnNewButton_2_1 = new JButton("Delete Books");
-                        //        btnNewButton_2_1.addActionListener(new ActionListener() {
-                        //            public void actionPerformed(ActionEvent e) {
-                        //                dMgr.displayDeleteBookUI();
-                        //            }
-                        //        });
-                        //        btnNewButton_2_1.setBounds(243, 120, 184, 25);
-                        //        btnNewButton_2_1.setForeground(Color.WHITE);
-                        //        btnNewButton_2_1.setBackground(new Color(18, 97, 160));
-                        //        contentPane.add(btnNewButton_2_1);
-                        
-                                JButton btnNewButton_2_2 = new JButton("View and Edit Books");
-                                btnNewButton_2_2.addActionListener(new ActionListener() {
-                                    public void actionPerformed(ActionEvent e) {
-                                        dMgr.displayAllBooks();
+        GridBagLayout gbl_contentPane = new GridBagLayout();
+        gbl_contentPane.columnWidths = new int[]{207, 211, 0};
+        gbl_contentPane.rowHeights = new int[]{49, 29, 39, 25, 25, 0};
+        gbl_contentPane.columnWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
+        gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+        contentPane.setLayout(gbl_contentPane);
 
-                                    }
-                                });
-                                
-                                        JLabel lblNewLabel = new JLabel("DASHBOARD");
-                                        lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-                                        lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 24));
-                                        GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
-                                        gbc_lblNewLabel.anchor = GridBagConstraints.NORTH;
-                                        gbc_lblNewLabel.fill = GridBagConstraints.HORIZONTAL;
-                                        gbc_lblNewLabel.insets = new Insets(0, 0, 5, 0);
-                                        gbc_lblNewLabel.gridwidth = 2;
-                                        gbc_lblNewLabel.gridx = 0;
-                                        gbc_lblNewLabel.gridy = 1;
-                                        contentPane.add(lblNewLabel, gbc_lblNewLabel);
-                                
-                                        JButton btnNewButton_2 = new JButton("Add Book");
-                                        btnNewButton_2.addActionListener(new ActionListener() {
-                                            public void actionPerformed(ActionEvent e) {
-                                                dMgr.displayAddBookUI();
-                                            }
-                                        });
-                                        btnNewButton_2.setForeground(Color.WHITE);
-                                        btnNewButton_2.setBackground(new Color(18, 97, 160));
-                                        GridBagConstraints gbc_btnNewButton_2 = new GridBagConstraints();
-                                        gbc_btnNewButton_2.anchor = GridBagConstraints.NORTH;
-                                        gbc_btnNewButton_2.fill = GridBagConstraints.HORIZONTAL;
-                                        gbc_btnNewButton_2.insets = new Insets(0, 0, 5, 5);
-                                        gbc_btnNewButton_2.gridx = 0;
-                                        gbc_btnNewButton_2.gridy = 3;
-                                        contentPane.add(btnNewButton_2, gbc_btnNewButton_2);
-                                btnNewButton_2_2.setForeground(Color.WHITE);
-                                btnNewButton_2_2.setBackground(new Color(18, 97, 160));
-                                GridBagConstraints gbc_btnNewButton_2_2 = new GridBagConstraints();
-                                gbc_btnNewButton_2_2.anchor = GridBagConstraints.NORTH;
-                                gbc_btnNewButton_2_2.fill = GridBagConstraints.HORIZONTAL;
-                                gbc_btnNewButton_2_2.insets = new Insets(0, 0, 5, 0);
-                                gbc_btnNewButton_2_2.gridx = 1;
-                                gbc_btnNewButton_2_2.gridy = 3;
-                                contentPane.add(btnNewButton_2_2, gbc_btnNewButton_2_2);
-                        
-                        //        JButton btnNewButton_2_3 = new JButton("Edit Book");
-                        //        btnNewButton_2_3.addActionListener(new ActionListener() {
-                        //            public void actionPerformed(ActionEvent e) {
-                        //                dMgr.displayEditBookUI();
-                        //            }
-                        //        });
-                        //        btnNewButton_2_3.setBounds(243, 150, 184, 25);
-                        //        btnNewButton_2_3.setForeground(Color.WHITE);
-                        //        btnNewButton_2_3.setBackground(new Color(18, 97, 160));
-                        //        contentPane.add(btnNewButton_2_3);
-                        
-                                JButton btnNewButton_2_5 = new JButton("View Requests");
-                                btnNewButton_2_5.addActionListener(new ActionListener() {
-                                    public void actionPerformed(ActionEvent e) {
-                                        dMgr.displayBookRequests();
-                                    }
-                                });
-                                
-                                        JButton btnNewButton_2_2_1 = new JButton("View Issued & Returned Books");
-                                        btnNewButton_2_2_1.addActionListener(new ActionListener() {
-                                            public void actionPerformed(ActionEvent e) {
-                                                dMgr.displayAllLoanedBooks();
-                                            }
-                                        });
-                                        btnNewButton_2_2_1.setForeground(Color.WHITE);
-                                        btnNewButton_2_2_1.setBackground(new Color(18, 97, 160));
-                                        GridBagConstraints gbc_btnNewButton_2_2_1 = new GridBagConstraints();
-                                        gbc_btnNewButton_2_2_1.anchor = GridBagConstraints.NORTHWEST;
-                                        gbc_btnNewButton_2_2_1.insets = new Insets(0, 0, 0, 5);
-                                        gbc_btnNewButton_2_2_1.gridx = 0;
-                                        gbc_btnNewButton_2_2_1.gridy = 4;
-                                        contentPane.add(btnNewButton_2_2_1, gbc_btnNewButton_2_2_1);
-                                btnNewButton_2_5.setForeground(Color.WHITE);
-                                btnNewButton_2_5.setBackground(new Color(18, 97, 160));
-                                GridBagConstraints gbc_btnNewButton_2_5 = new GridBagConstraints();
-                                gbc_btnNewButton_2_5.anchor = GridBagConstraints.NORTH;
-                                gbc_btnNewButton_2_5.fill = GridBagConstraints.HORIZONTAL;
-                                gbc_btnNewButton_2_5.gridx = 1;
-                                gbc_btnNewButton_2_5.gridy = 4;
-                                contentPane.add(btnNewButton_2_5, gbc_btnNewButton_2_5);
+        JButton btnNewButton_2_2 = new JButton("View and Edit Books");
+        btnNewButton_2_2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                dMgr.displayAllBooks();
+
+            }
+        });
+
+        JLabel lblNewLabel = new JLabel("DASHBOARD");
+        lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 24));
+        GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
+        gbc_lblNewLabel.anchor = GridBagConstraints.NORTH;
+        gbc_lblNewLabel.fill = GridBagConstraints.HORIZONTAL;
+        gbc_lblNewLabel.insets = new Insets(0, 0, 5, 0);
+        gbc_lblNewLabel.gridwidth = 2;
+        gbc_lblNewLabel.gridx = 0;
+        gbc_lblNewLabel.gridy = 1;
+        contentPane.add(lblNewLabel, gbc_lblNewLabel);
+
+        JButton btnNewButton_2 = new JButton("Add Book");
+        btnNewButton_2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                dMgr.displayAddBookUI();
+            }
+        });
+        btnNewButton_2.setForeground(Color.WHITE);
+        btnNewButton_2.setBackground(new Color(18, 97, 160));
+        GridBagConstraints gbc_btnNewButton_2 = new GridBagConstraints();
+        gbc_btnNewButton_2.anchor = GridBagConstraints.NORTH;
+        gbc_btnNewButton_2.fill = GridBagConstraints.HORIZONTAL;
+        gbc_btnNewButton_2.insets = new Insets(0, 0, 5, 5);
+        gbc_btnNewButton_2.gridx = 0;
+        gbc_btnNewButton_2.gridy = 3;
+        contentPane.add(btnNewButton_2, gbc_btnNewButton_2);
+        btnNewButton_2_2.setForeground(Color.WHITE);
+        btnNewButton_2_2.setBackground(new Color(18, 97, 160));
+        GridBagConstraints gbc_btnNewButton_2_2 = new GridBagConstraints();
+        gbc_btnNewButton_2_2.anchor = GridBagConstraints.NORTH;
+        gbc_btnNewButton_2_2.fill = GridBagConstraints.HORIZONTAL;
+        gbc_btnNewButton_2_2.insets = new Insets(0, 0, 5, 0);
+        gbc_btnNewButton_2_2.gridx = 1;
+        gbc_btnNewButton_2_2.gridy = 3;
+        contentPane.add(btnNewButton_2_2, gbc_btnNewButton_2_2);
+
+        JButton btnNewButton_2_5 = new JButton("View Requests");
+        btnNewButton_2_5.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                dMgr.displayBookRequests();
+            }
+        });
+
+        JButton btnNewButton_2_2_1 = new JButton("View Issued & Returned Books");
+        btnNewButton_2_2_1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                dMgr.displayAllLoanedBooks();
+            }
+        });
+        btnNewButton_2_2_1.setForeground(Color.WHITE);
+        btnNewButton_2_2_1.setBackground(new Color(18, 97, 160));
+        GridBagConstraints gbc_btnNewButton_2_2_1 = new GridBagConstraints();
+        gbc_btnNewButton_2_2_1.anchor = GridBagConstraints.NORTHWEST;
+        gbc_btnNewButton_2_2_1.insets = new Insets(0, 0, 0, 5);
+        gbc_btnNewButton_2_2_1.gridx = 0;
+        gbc_btnNewButton_2_2_1.gridy = 4;
+        contentPane.add(btnNewButton_2_2_1, gbc_btnNewButton_2_2_1);
+        btnNewButton_2_5.setForeground(Color.WHITE);
+        btnNewButton_2_5.setBackground(new Color(18, 97, 160));
+        GridBagConstraints gbc_btnNewButton_2_5 = new GridBagConstraints();
+        gbc_btnNewButton_2_5.anchor = GridBagConstraints.NORTH;
+        gbc_btnNewButton_2_5.fill = GridBagConstraints.HORIZONTAL;
+        gbc_btnNewButton_2_5.gridx = 1;
+        gbc_btnNewButton_2_5.gridy = 4;
+        contentPane.add(btnNewButton_2_5, gbc_btnNewButton_2_5);
     }
 }

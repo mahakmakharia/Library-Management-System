@@ -16,17 +16,17 @@ public class BookLoanStatus {
     private int IssueId = 0;
     private String IssueDate = "";
     private String ReturnDate = "";
-    
-//    BookLoanStatus(int bookId, int userId, int issueId, String issueDate, 
-//            String returnDate){
-//        
-//        this.BookId=bookId;
-//        this.UserId=issueId;
-//        this.UserId=userId;
-//        this.IssueDate=issueDate;
-//        this.ReturnDate=returnDate;
-//    }
 
+//    BookLoanStatus(int bookId, int userId, int issueId, String issueDate,
+//            String returnDate) {
+//
+//        this.BookId = bookId;
+//        this.UserId = issueId;
+//        this.UserId = userId;
+//        this.IssueDate = issueDate;
+//        this.ReturnDate = returnDate;
+//    }
+    
     public int getBookId() {
         return BookId;
     }

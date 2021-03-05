@@ -39,7 +39,6 @@ public class DisplayManager {
         this.issueBookScreen = new IssueBookUI(this, mainMgr);
         this.returnBookScreen = new ReturnBookUI(mainMgr);
         this.requestBookScreen = new RequestBookUI(mainMgr);
-
     }
 
     public void startApp() {
@@ -83,7 +82,6 @@ public class DisplayManager {
     }
 
     public void displayAllBooks() {
-//        this.viewAllBooksScreen = new ViewBooksUI(this.BookList, new BookManager());
         this.viewAllBooksScreen.setVisible(true);
     }
 

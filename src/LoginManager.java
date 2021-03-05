@@ -29,7 +29,6 @@ public class LoginManager {
                 String data[] = file.split(",");
 
                 if (userid == Integer.parseInt(data[3]) && password.equals(data[2]) && userType.equals(data[0])) {
-                    System.out.print(userType);
                     return userType;
                 }
             }

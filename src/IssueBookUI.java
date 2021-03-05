@@ -112,26 +112,26 @@ public class IssueBookUI extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         boolean flag = this.mainMgr.issueBook(mainMgr.getBookId(), mainMgr.getCurrentUserId());
-        System.out.println(mainMgr.getBookId() + "," + mainMgr.getCurrentUserId());
+//        System.out.println(mainMgr.getBookId() + "," + mainMgr.getCurrentUserId());
         if (flag) {
             JOptionPane.showMessageDialog(null, mainMgr.getBook(mainMgr.getBookId()).getBookName() + " Issued Successfully!");
         } else {
             JOptionPane.showMessageDialog(null, "You have issued it already or there are no copies available",
                     "Issue Book", JOptionPane.WARNING_MESSAGE);
         }
-        
+
     }//GEN-LAST:event_issueBookButtonActionPerformed
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
         boolean flag = this.mainMgr.returnBook(mainMgr.getBookId(), mainMgr.getCurrentUserId());
-        System.out.println(mainMgr.getBookId() + "," + mainMgr.getCurrentUserId());
+//        System.out.println(mainMgr.getBookId() + "," + mainMgr.getCurrentUserId());
         if (flag) {
             JOptionPane.showMessageDialog(null, mainMgr.getBook(mainMgr.getBookId()).getBookName() + " Returned Successfully!");
         } else {
             JOptionPane.showMessageDialog(null, "You have returned it already",
                     "Return Book", JOptionPane.WARNING_MESSAGE);
         }
-       
+
     }//GEN-LAST:event_returnButtonActionPerformed
 
     /**

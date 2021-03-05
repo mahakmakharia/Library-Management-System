@@ -107,7 +107,6 @@ public class LoginUI extends JFrame {
                     if (result != null) {
                         mainMgr.setCurrentUserId(Integer.parseInt(userId));
                         mainMgr.setUserType(userType);
-                        System.out.println(mainMgr.getCurrentUserId()); //debugg
                         JOptionPane.showMessageDialog(null, "Succesfully Logged in!");
 
                         if (userType.equals("admin")) {

@@ -31,7 +31,6 @@ public class ViewBooksUI extends JFrame {
     private JPanel contentPane;
     private String columnNames[] = {"Book ID", "Name of Book", "Author", "Publisher", "No. of Copies", "No. of Copies Issued"};
     private String[][] data = new String[100][6];
-//    private ArrayList<Book> books;
 
     private JTable table;
     private JTextField textField;
@@ -39,22 +38,23 @@ public class ViewBooksUI extends JFrame {
     private MainManager mainMgr;
 
     public boolean updateData() {
-    	ArrayList<Book> books=mainMgr.getAllBooks();
-    	 data = new String[100][6];
-         for (int i = 0; i < books.size(); i++) {
-             Book b = books.get(i);
-             data[i][0] = String.valueOf(b.getBookId());
-             data[i][1] = b.getBookName();
-             data[i][2] = b.getAuthor();
-             data[i][3] = b.getPublisher();
-             data[i][4] = String.valueOf(b.getNoOfCopies());
-             data[i][5] = String.valueOf(b.getNoOfCopiesIssued());
-             
-         }
-    	
-    	return true;
-    	
+        ArrayList<Book> books = mainMgr.getAllBooks();
+        data = new String[100][6];
+        for (int i = 0; i < books.size(); i++) {
+            Book b = books.get(i);
+            data[i][0] = String.valueOf(b.getBookId());
+            data[i][1] = b.getBookName();
+            data[i][2] = b.getAuthor();
+            data[i][3] = b.getPublisher();
+            data[i][4] = String.valueOf(b.getNoOfCopies());
+            data[i][5] = String.valueOf(b.getNoOfCopiesIssued());
+
+        }
+
+        return true;
+
     }
+
     /**
      * Launch the application.
      */
@@ -73,7 +73,7 @@ public class ViewBooksUI extends JFrame {
     /**
      * Create the frame.
      */
-    public ViewBooksUI(final DisplayManager dMgr,final  MainManager mainMgr) {
+    public ViewBooksUI(final DisplayManager dMgr, final MainManager mainMgr) {
         this.mainMgr = mainMgr;
         setTitle("View Books");
         this.dMgr = dMgr;
@@ -102,15 +102,12 @@ public class ViewBooksUI extends JFrame {
 
         }
         table = new JTable(data, columnNames);
-        
-         final DefaultTableModel tableModel=
-        new DefaultTableModel(
-                data,
-                columnNames
-        ) {
-            /**
-             *
-             */
+
+        final DefaultTableModel tableModel
+                = new DefaultTableModel(
+                        data,
+                        columnNames
+                ) {
             private static final long serialVersionUID = 1L;
             boolean[] columnEditables = new boolean[]{
                 false, false, false, false, false, false
@@ -142,31 +139,28 @@ public class ViewBooksUI extends JFrame {
                 }
                 tableModel.setDataVector(data, columnNames);
 
-
             }
         });
 
         tableModel.fireTableDataChanged();
         table.setFocusable(false);
         table.addMouseListener(new MouseAdapter() {
-            public void mouseClicked(MouseEvent me) { 
+            public void mouseClicked(MouseEvent me) {
                 JTable target = (JTable) me.getSource();
                 int row = target.getSelectedRow();
                 int id = Integer.parseInt(table.getValueAt(row, 0).toString());
-                System.out.println(id);
                 mainMgr.setBookId(id);
                 if (mainMgr.getUserType().equals("student")) {
                     dMgr.displayIssueBookUI();
 
-            		tableModel.setDataVector(data, columnNames);
-            		updateData();
+                    tableModel.setDataVector(data, columnNames);
+                    updateData();
                 } else {
                     dMgr.displayEditBookUI();
                 }
             }
 
         });
-        
 
         textField = new JTextField();
         textField.setBounds(0, 13, 116, 22);
@@ -174,13 +168,13 @@ public class ViewBooksUI extends JFrame {
         textField.setColumns(10);
         btnNewButton.setBackground(new Color(18, 97, 160));
         contentPane.add(btnNewButton);
-        
+
         JButton btnRefresh = new JButton("Refresh");
         btnRefresh.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		updateData();
-        		tableModel.setDataVector(data, columnNames);
-        	}
+            public void actionPerformed(ActionEvent e) {
+                updateData();
+                tableModel.setDataVector(data, columnNames);
+            }
         });
         tableModel.fireTableDataChanged();
 

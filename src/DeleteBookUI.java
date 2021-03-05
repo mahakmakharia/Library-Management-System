@@ -124,7 +124,7 @@ public class DeleteBookUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "There was an error while Deleting the book!",
                     "Delete Book", JOptionPane.WARNING_MESSAGE);
         }
-         dispose();
+        dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void CancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelButtonActionPerformed

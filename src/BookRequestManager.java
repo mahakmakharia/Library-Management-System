@@ -38,9 +38,8 @@ public class BookRequestManager {
                 String fileContent;
                 while ((fileContent = br.readLine()) != null) {
                     String[] requestData = fileContent.split(",");
-                    if (requestData.length != 5) {
-                        continue;
-                    }
+                    
+                    //order: request ID, user ID, book name, author name, publisher 
                     BookRequest bookRequest = new BookRequest();
                     bookRequest.setRequestId(requestData[0]);
                     bookRequest.setUserId(Integer.parseInt(requestData[1]));
@@ -76,11 +75,10 @@ public class BookRequestManager {
     public boolean writeBookRequestToFile(BookRequest bookRequest) {
         boolean flag = false;
         try {
-            System.out.println("works");
+
             FileWriter fw = new FileWriter(FILE_PATH, true);
             try ( BufferedWriter bw = new BufferedWriter(fw)) {
                 bw.newLine();
-                System.out.println("new line works");
                 bw.write(bookRequest.getRequestId() + "," + bookRequest.getUserId() + "," + bookRequest.getBookName() + ","
                         + bookRequest.getAuthorName() + "," + bookRequest.getPublisher());
             } catch (IOException e) {

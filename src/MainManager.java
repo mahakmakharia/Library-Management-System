@@ -21,7 +21,6 @@ public class MainManager {
     private int userId;
     private int bookId;
     private String userType;
-//    private ArrayList<Book> BookList;
 
     public String getUserType() {
         return userType;
@@ -39,13 +38,6 @@ public class MainManager {
         this.bookId = bookId;
     }
 
-//    public ArrayList<Book> getBookList() {
-//        return BookList;
-//    }
-//
-//    public void setBookList(ArrayList<Book> BookList) {
-//        this.BookList = BookList;
-//    }
     public int getCurrentUserId() {
         return userId;
     }
@@ -79,10 +71,10 @@ public class MainManager {
     public boolean editBook(Book book) {
         return bMgr.editBook(book);
     }
-    
-     public boolean updateBookList() {
-         return bMgr.updateBookList();
-     }
+
+    public boolean updateBookList() {
+        return bMgr.updateBookList();
+    }
 
     public ArrayList<Book> searchBook(String bookName) {
         return bMgr.searchBook(bookName);

@@ -4,7 +4,6 @@ package javaapplication1;
  *
  * @author Manish
  */
-
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -52,7 +51,6 @@ public class BookLoanUI extends JFrame {
 //			}
 //		});
 //	}
-
     /**
      * Create the frame.
      */

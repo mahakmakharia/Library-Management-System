@@ -25,7 +25,6 @@ import java.awt.Insets;
  *
  * @author Manish
  */
-
 public class ViewRequestsUI extends JFrame {
 
     private JPanel contentPane;
@@ -54,6 +53,7 @@ public class ViewRequestsUI extends JFrame {
     /**
      * Create the frame.
      */
+    
     public ViewRequestsUI(MainManager mainMgr) {
         this.mainMgr = mainMgr;
         setTitle("Books Issued and Returned");
@@ -92,7 +92,7 @@ public class ViewRequestsUI extends JFrame {
 
         for (int i = 0; i < requests.size(); i++) {
             BookRequest b = requests.get(i);
-            System.out.println(b.getBookName());
+//            System.out.println(b.getBookName());
             data[i][0] = String.valueOf(b.getUserId());
             data[i][1] = b.getRequestId();
             data[i][2] = b.getBookName();
@@ -105,9 +105,6 @@ public class ViewRequestsUI extends JFrame {
                 data,
                 columnNames
         ) {
-            /**
-             *
-             */
             private static final long serialVersionUID = 1L;
             boolean[] columnEditables = new boolean[]{
                 false, false, false, false, false
