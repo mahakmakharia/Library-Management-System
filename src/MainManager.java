@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Mahak
+ * @author Mahak Makharia
  */
 public class MainManager {
 
@@ -79,6 +79,10 @@ public class MainManager {
     public boolean editBook(Book book) {
         return bMgr.editBook(book);
     }
+    
+     public boolean updateBookList() {
+         return bMgr.updateBookList();
+     }
 
     public ArrayList<Book> searchBook(String bookName) {
         return bMgr.searchBook(bookName);
@@ -107,10 +111,10 @@ public class MainManager {
     }
 
     public boolean init() {
-        loginMgr = new LoginManager();
-        bMgr = new BookManager();
-        brMgr = new BookRequestManager();
-        blsMgr = new BookLoanStatusManager();
+        loginMgr = new LoginManager(this);
+        bMgr = new BookManager(this);
+        brMgr = new BookRequestManager(this);
+        blsMgr = new BookLoanStatusManager(this);
         boolean flag = bMgr.init() && brMgr.init() && blsMgr.init();
         dispMgr = new DisplayManager();
         if (!flag) {

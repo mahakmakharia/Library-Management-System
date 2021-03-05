@@ -46,7 +46,7 @@ public class StudentDashboardUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public StudentDashboardUI(DisplayManager dMgr) {
+	public StudentDashboardUI(final DisplayManager dMgr) {
                 this.dMgr = dMgr;
 		setTitle("Student Dashboard");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -77,7 +77,7 @@ public class StudentDashboardUI extends JFrame {
 				dMgr.displayAllBooks();
 			}
 		});
-		btnNewButton_2_2.setBounds(12, 107, 195, 25);
+		btnNewButton_2_2.setBounds(115, 110, 195, 25);
 		btnNewButton_2_2.setForeground(Color.WHITE);
 		btnNewButton_2_2.setBackground(new Color(18, 97, 160));
 		contentPane.add(btnNewButton_2_2);
@@ -102,7 +102,7 @@ public class StudentDashboardUI extends JFrame {
 				dMgr.displayRequestBookUI();
 			}
 		});
-		btnNewButton_2_2_3.setBounds(217, 137, 195, 25);
+		btnNewButton_2_2_3.setBounds(115, 148, 195, 25);
 		btnNewButton_2_2_3.setForeground(Color.WHITE);
 		btnNewButton_2_2_3.setBackground(new Color(18, 97, 160));
 		contentPane.add(btnNewButton_2_2_3);

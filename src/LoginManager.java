@@ -7,12 +7,17 @@ import java.io.FileReader;
  *
  * @author Osama
  */
-
 public class LoginManager {
+
+    private MainManager mainMgr;
+
+    LoginManager(MainManager mainMgr) {
+        this.mainMgr = mainMgr;
+    }
 
     public String verifyUser(int userId, String passwords, String userType) {
 
-        String path = "data\\user.csv";
+        String path = "data/user.csv";
         try {
             BufferedReader br = new BufferedReader(new FileReader(path));
 

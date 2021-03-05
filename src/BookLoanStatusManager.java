@@ -19,15 +19,18 @@ public class BookLoanStatusManager {
     private static ArrayList<Book> Books;
     private String FILEPATH1;
     private String FILEPATH2;
+    private MainManager mainMgr;
+
+    BookLoanStatusManager(MainManager mainMgr) {
+        this.mainMgr = mainMgr;
+    }
 
     public boolean init() {
+
         this.BooksLoaned = new ArrayList<BookLoanStatus>();
-        this.Books = new ArrayList<Book>();
-        this.FILEPATH1 = "data\\bookloan.csv";
-        this.FILEPATH2 = "data\\book.csv";
-        boolean flag1 = readBooksLoaned();
-        boolean flag2 = readBooks();
-        return flag1 && flag2;
+        this.Books = mainMgr.getAllBooks();
+        this.FILEPATH1 = "data/bookloan.csv";
+        return readBooksLoaned();
     }
 
     public boolean readBooksLoaned() {
@@ -58,39 +61,6 @@ public class BookLoanStatusManager {
 
     public ArrayList<BookLoanStatus> getBooksLoaned() {
         return BooksLoaned;
-
-    }
-
-    public boolean readBooks() {
-        boolean flag = false;
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(FILEPATH2));
-            String s;
-            while ((s = br.readLine()) != null) {
-                String[] requestData = s.split(",");
-                if (requestData.length < 3) {
-                    continue;
-                }
-                Book b3 = new Book();
-                b3.setBookName(requestData[0]);
-                b3.setAuthor(requestData[1]);
-                b3.setPublisher(requestData[2]);
-                b3.setISBNCode(requestData[3]);
-                b3.setNoOfCopies(Integer.parseInt(requestData[4]));
-                b3.setNoOfCopiesIssued(Integer.parseInt(requestData[5]));
-                b3.setBookId(Integer.parseInt(requestData[6]));
-                Books.add(b3);
-                flag = true;
-
-            }
-        } catch (IOException e) {
-            System.out.println("File not found!" + e.getLocalizedMessage());
-        }
-        return flag;
-    }
-
-    public ArrayList<Book> getBooks() {
-        return Books;
 
     }
 
@@ -126,7 +96,7 @@ public class BookLoanStatusManager {
 
                     canIssueBook = true;
                     updateBooksLoaned();
-                    updateBooks();
+                    mainMgr.updateBookList();
                     break;
                 } else {
                     canIssueBook = false;
@@ -152,8 +122,7 @@ public class BookLoanStatusManager {
                     if ((Books.get(j).getBookId() == bId) && (Books.get(j).getNoOfCopiesIssued() > 0)) {
                         Books.get(j).setNoOfCopiesIssued(Books.get(j).getNoOfCopiesIssued() - 1);
                         //System.out.println("Hello");
-                        updateBooks();
-
+                        mainMgr.updateBookList();
                         break;
                     }
                 }
@@ -194,35 +163,6 @@ public class BookLoanStatusManager {
         }
         return flag;
     }
-
-    public boolean updateBooks() {
-        boolean flag = false;
-        try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter(FILEPATH2));
-            Book d3 = new Book();
-            d3 = Books.get(0);
-            bw.write(d3.getBookName() + "," + d3.getAuthor() + "," + d3.getPublisher() + "," + d3.getISBNCode() + "," + d3.getNoOfCopies() + "," + d3.getNoOfCopiesIssued() + "," + d3.getBookId());
-            bw.newLine();
-            for (int i = 1; i < Books.size(); i++) {
-                d3 = Books.get(i);
-                try {
-                    BufferedWriter bwr;
-                    bwr = new BufferedWriter(new FileWriter(FILEPATH2, true));
-                    bw.write(d3.getBookName() + "," + d3.getAuthor() + "," + d3.getPublisher() + "," + d3.getISBNCode() + "," + d3.getNoOfCopies() + "," + d3.getNoOfCopiesIssued() + "," + d3.getBookId());
-                    bw.newLine();
-                    bwr.close();
-                } catch (FileNotFoundException e) {
-                    System.out.println("File not found! " + e.getLocalizedMessage());
-                }
-            }
-            bw.close();
-            flag = true;
-        } catch (Exception e) {
-            System.out.println("IOException!" + e.getLocalizedMessage());
-        }
-        return flag;
-    }
-
 //    public static void main(String args[]) {
 //
 //        BookLoanStatusManager m1 = new BookLoanStatusManager();

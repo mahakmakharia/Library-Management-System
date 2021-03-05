@@ -16,10 +16,15 @@ public class BookRequestManager {
 
     private ArrayList<BookRequest> bookRequestList;
     private String FILE_PATH;
+    private MainManager mainMgr;
+
+    BookRequestManager(MainManager mainMgr) {
+        this.mainMgr = mainMgr;
+    }
 
     public boolean init() {
         this.bookRequestList = new ArrayList<>();
-        this.FILE_PATH = "data\\bookrequest.csv";
+        this.FILE_PATH = "data/bookrequest.csv";
         return read();
     }
 
@@ -71,9 +76,11 @@ public class BookRequestManager {
     public boolean writeBookRequestToFile(BookRequest bookRequest) {
         boolean flag = false;
         try {
+            System.out.println("works");
             FileWriter fw = new FileWriter(FILE_PATH, true);
             try ( BufferedWriter bw = new BufferedWriter(fw)) {
                 bw.newLine();
+                System.out.println("new line works");
                 bw.write(bookRequest.getRequestId() + "," + bookRequest.getUserId() + "," + bookRequest.getBookName() + ","
                         + bookRequest.getAuthorName() + "," + bookRequest.getPublisher());
             } catch (IOException e) {

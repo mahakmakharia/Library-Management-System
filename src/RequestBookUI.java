@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Mahak
+ * @author Mahak Makharia
  */
 public class RequestBookUI extends javax.swing.JFrame {
 
@@ -159,14 +159,21 @@ public class RequestBookUI extends javax.swing.JFrame {
         String authorName = authorNameField.getText();
         String publisher = publisherField.getText();
         BookRequest newRequest = new BookRequest("", mainMgr.getCurrentUserId(), bookName, authorName, publisher);
-        boolean flag = mainMgr.newBookRequest(newRequest);
-        System.out.println(bookName + "," + authorName + "," + publisher + "," + mainMgr.getCurrentUserId());
-        if (flag) {
-            JOptionPane.showMessageDialog(null, "Book Request Sent!");
-        } else {
-            JOptionPane.showMessageDialog(null, "Request Faild, try later!",
+
+        if (bookName.equals("") && authorName.equals("") && publisher.equals("")) {
+            JOptionPane.showMessageDialog(null, "Please fill all fields!",
                     "Request Book", JOptionPane.WARNING_MESSAGE);
+
+        } else {
+            if (mainMgr.newBookRequest(newRequest)) {
+                JOptionPane.showMessageDialog(null, "Book Request Sent!");
+            } else {
+                JOptionPane.showMessageDialog(null, "Request Faild, try later!",
+                        "Request Book", JOptionPane.WARNING_MESSAGE);
+            }
+
         }
+        dispose();
     }//GEN-LAST:event_requestButtonActionPerformed
 
     /**

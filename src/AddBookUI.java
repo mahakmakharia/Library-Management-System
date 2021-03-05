@@ -54,13 +54,14 @@ public class AddBookUI extends JFrame {
     /**
      * Create the frame.
      */
-    public AddBookUI(DisplayManager dMgr, MainManager mainMgr ) {
+    public AddBookUI(DisplayManager dMgr, final MainManager mainMgr) {
         this.mainMgr = mainMgr;
         this.dMgr = dMgr;
         setTitle("Add Book");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(100, 100, 450, 300);
         contentPane = new JPanel();
+        contentPane.setBackground(Color.WHITE);
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
         GridBagLayout gbl_contentPane = new GridBagLayout();
@@ -188,9 +189,18 @@ public class AddBookUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 Book book = new Book(BookName.getText(), AuthorName.getText(), Publisher.getText(), ISBNCode.getText(), Integer.parseInt(Copies.getText()),
                         Integer.parseInt(CopiesIssued.getText()), Integer.parseInt(BookID.getText()));
-                if (mainMgr.addBook(book)) {
-                    JOptionPane.showMessageDialog(null, "Succesfully Added new Book!");
-                    dispose();
+
+                if (BookName.getText() != null && AuthorName.getText() != null && Publisher.getText() != null
+                        && ISBNCode.getText() != null && Copies.getText() != null && CopiesIssued.getText() != null && BookID.getText() != null) {
+                    if (mainMgr.addBook(book)) {
+                        JOptionPane.showMessageDialog(null, "Succesfully Added new Book!");
+                        dispose();
+                    }
+                    JOptionPane.showMessageDialog(null, "Couldn't add book!",
+                            "Login", JOptionPane.WARNING_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Please fill all the fields!",
+                            "Login", JOptionPane.WARNING_MESSAGE);
                 }
 
             }

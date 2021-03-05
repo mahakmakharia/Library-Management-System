@@ -53,7 +53,7 @@ public class LoginUI extends JFrame {
     /**
      * Create the frame.
      */
-    public LoginUI(DisplayManager dMgr, MainManager mainMgr) {
+    public LoginUI(final DisplayManager dMgr, final MainManager mainMgr) {
         setTitle("Login");
         this.dMgr = dMgr;
         this.mainMgr = mainMgr;
@@ -99,7 +99,7 @@ public class LoginUI extends JFrame {
                 String result = null;
 
                 if ("".equals(userId) && "".equals(password)) {
-                    JOptionPane.showMessageDialog(null, "Fill all fields",
+                    JOptionPane.showMessageDialog(null, "Please fill all the fields!",
                             "Login", JOptionPane.WARNING_MESSAGE);
 
                 } else {

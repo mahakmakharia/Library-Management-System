@@ -13,21 +13,23 @@ import javax.swing.JFrame;
  *
  * @author Manish
  */
-
 public class BookManager {
 
     private ArrayList<Book> BookList;
     private String FILE_PATH;
+    private MainManager mainMgr;
 
+    BookManager(MainManager mainMgr) {
+        this.mainMgr = mainMgr;
+    }
 
     public boolean init() {
         this.BookList = new ArrayList<Book>();
-        this.FILE_PATH = "data\\book.csv";
+        this.FILE_PATH = "data/book.csv";
         return read();
     }
 
     public boolean read() {
-
         String path = FILE_PATH;
         boolean flag = false;
         try {
@@ -86,7 +88,7 @@ public class BookManager {
     }
 
     public ArrayList<Book> getAllBooks() {
-        return BookList;
+        return this.BookList;
     }
 
     public Book getBook(int bookId) {
@@ -143,10 +145,10 @@ public class BookManager {
         ArrayList<Book> bookList = new ArrayList<>();
         for (int i = 0; i < BookList.size(); i++) {
             String book = (BookList.get(i).getBookName()).toLowerCase();
-           
+
             if (book.contains(bookName.toLowerCase()) || book.equalsIgnoreCase(bookName)) {
-                 System.out.println(book + ","+bookName.toLowerCase()
-            );
+                System.out.println(book + "," + bookName.toLowerCase()
+                );
                 bookList.add(BookList.get(i));
             }
         }
@@ -165,7 +167,6 @@ public class BookManager {
 //		assert bm.getAllBooks().size()==length+1:"error while adding book";
 //		JFrame AdminDashboard = new AdminDashboardUI(bm);
 //        AdminDashboard.setVisible(true);
-
 //		bm.deleteBook(3);
 //		assert bm.getAllBooks().size()==length:"cant delete";
 //		bm.editBook(new Book("asasdw","asdsada","asdasdas","12",1,2,3));
